@@ -1,7 +1,5 @@
 # ComfyUI-FolderImageLoader(JY)
 
-A custom node for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) that sequentially loads images from a specified subfolder into dynamically expandable output slots or as a combined batch tensor.
-
 ## Features
 - **Subfolder Image Loading**: Specify `root_directory` and `subfolder_name` to auto-read image sequences.
 - **Natural Number Sorting**: Sorts files naturally (e.g. `img2.png` appears before `img10.png`).
@@ -14,8 +12,3 @@ A custom node for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) that sequ
 ## Installation
 ### Method 1: ComfyUI Manager (Recommended)
 Search for `ComfyUI-FolderImageLoader(JY)` in ComfyUI Manager and click **Install**.
-
-### Method 2: Manual Clone
-Open your terminal in `ComfyUI/custom_nodes/` and run:
-```bash
-git clone [https://github.com/ZeHime/ComfyUI-FolderImageLoader-JY.git](https://github.com/ZeHime/ComfyUI-FolderImageLoader-JY.git)
