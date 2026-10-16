@@ -5,7 +5,7 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "FolderImageSequenceLoader": "Load Images from Subfolder (Multi-Slots)"
+    "FolderImageSequenceLoader": "ComfyUI-FolderImageLoader-JY"
 }
 
 # 宣告 JS 靜態資源目錄（必要，否則前端抓不到腳本）
