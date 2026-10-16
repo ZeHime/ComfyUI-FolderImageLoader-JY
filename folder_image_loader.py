@@ -5,11 +5,9 @@ import numpy as np
 from PIL import Image, ImageOps
 
 def natural_sort_key(s):
-    """自然排序 (例如: img2 會排在 img10 前面)"""
     return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
 
 def load_image_to_tensor(image_path):
-    """讀取影像並轉換為 ComfyUI 標準的 [1, H, W, 3] Float32 Tensor"""
     img = Image.open(image_path)
     img = ImageOps.exif_transpose(img)
     if img.mode != "RGB":
@@ -18,11 +16,10 @@ def load_image_to_tensor(image_path):
     return torch.from_numpy(image_np)[None,]
 
 def create_blank_tensor():
-    """產生 64x64 空白黑色圖像作為空槽位填充"""
     blank = np.zeros((1, 64, 64, 3), dtype=np.float32)
     return torch.from_numpy(blank)
 
-class FolderImageSequenceLoaderJY:
+class FolderImageSequenceLoader:
     MAX_SLOTS = 32  # 後端輸出池上限（提供足夠的插槽給前端動態開關）
 
     @classmethod
@@ -57,7 +54,7 @@ class FolderImageSequenceLoaderJY:
                     tensor = load_image_to_tensor(img_path)
                     image_tensors.append(tensor)
                 except Exception as e:
-                    print(f"[FolderImageLoader(JY)] 讀取失敗 {img_path}: {e}")
+                    print(f"[FolderImageLoader] 讀取失敗 {img_path}: {e}")
 
         if not image_tensors:
             image_tensors = [create_blank_tensor()]
